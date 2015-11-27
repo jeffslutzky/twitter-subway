@@ -1,0 +1,23 @@
+<h1>Twitter Subway</h1>
+
+
+<% if current_user %>
+<p><%= "Welcome, #{current_user.name}. You're logged in!" %></p>
+
+<% @client.home_timeline.each do |tweet| %>
+	<hr>
+	<p><%= tweet.user.name %> (@<%= tweet.user.user_name %>) </p>	
+	<p><%= tweet.text %></p>
+	<p><%= tweet.created_at %></p>
+
+	<% if tweet.urls? %>
+	<%= tweet.urls.first.attrs[:expanded_url] %>
+	<% end %>
+
+
+<% end %>
+
+
+<% else %>
+  <%= link_to "Log in with Twitter", "/auth/twitter" %>
+<% end %>
