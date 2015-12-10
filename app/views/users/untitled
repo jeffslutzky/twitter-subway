@@ -1,0 +1,13 @@
+<!--<% @client.home_timeline(count:50).each do |tweet| %>
+	<hr>
+	<p><%= tweet.user.name %> (@<%= tweet.user.screen_name %>) </p>	
+	<p><%= tweet.text %></p>
+	<p><%= tweet.created_at %></p>
+
+	<% if tweet.urls? %>
+		<% url = tweet.urls.first.attrs[:expanded_url] %>
+		<a href="<%= url %>"><%= url %></a>
+	
+
+	<% end %>
+	<% end %> -->

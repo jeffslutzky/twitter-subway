@@ -26,6 +26,8 @@ gem 'twitter'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pry'
+require 'nokogiri'
+require 'open-uri'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
