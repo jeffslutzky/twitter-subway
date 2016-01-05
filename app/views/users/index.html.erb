@@ -6,9 +6,6 @@
 <p><%= link_to "Log out", logout_path %></p>
 
 
-
-
-
 <% @client.user_timeline(current_user, count:100).each do |tweet| %>
   <hr>
   <p><%= tweet.text %></p>
@@ -17,8 +14,6 @@
   <% if tweet.urls? %>
     <% url = tweet.urls.first.attrs[:expanded_url] %>
     <a href="<%= url %>"><%= url %></a>
-  
-
   <% end %>
 
 
@@ -28,28 +23,3 @@
 <% else %>
   <%= link_to "Log in with Twitter", "/auth/twitter" %>
 <% end %>
-
-
-<!--  def self.parse
-    file = File.join(Rails.root, 'app', 'adapters', 'Directory_of_parks.csv')
-    public_toilets = File.read(file)
-    csv = CSV.parse(public_toilets, headers: true)
-      public_toilets_hash = csv.map do |park_restroom|
-      park_restroom.to_hash.reject do |key, value|  #remove "Comments" column from CSV file 
-        key == "Comments"
-
-      end
-    end
-  end -->
-
-<!--   def self.pic_scrape
-    document = open("http://shinishikawa.com/").read
-    noko_document = Nokogiri::HTML(document)
-    list_of_images = noko_document.search(".type-image")
-    array_of_images = list_of_images.map do |image|
-      image.attr("href")
-    end
-    array_of_images.each do |image_url|
-      Picture.create(photo_url: image_url)
-    end
-  end -->
