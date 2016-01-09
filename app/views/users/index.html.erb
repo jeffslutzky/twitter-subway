@@ -9,8 +9,9 @@
 <% @client.user_timeline(current_user, count:100).each do |tweet| %>
   <hr>
   <p><%= tweet.text %></p>
-  <p><%= tweet.created_at %></p>
-
+  <% offset = tweet.user.utc_offset %>
+  <% tweet_time = (tweet.created_at + offset).strftime("%a. %b %e, %Y @ %l:%M %p %z") %>
+  <p><%= tweet_time %></p>
   <% if tweet.urls? %>
     <% url = tweet.urls.first.attrs[:expanded_url] %>
     <a href="<%= url %>"><%= url %></a>
