@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get '/auth/:provider/callback', to: 'sessions#create'
   root 'users#index'
+  get 'index' => 'users#index'
   get '/logout' => 'sessions#destroy'
 
 
